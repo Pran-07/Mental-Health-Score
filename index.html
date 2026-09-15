@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MindScope AI — Mental Health Detection</title>
+<meta name="description" content="An AI-powered assessment that analyzes lifestyle and digital habits to estimate a Mental Health Score.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============ NAV ============ -->
+<header class="site-nav" id="siteNav">
+  <div class="nav-inner">
+    <a href="#home" class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="30" height="30">
+          <circle cx="16" cy="16" r="14.5" fill="none" stroke="url(#brandGrad)" stroke-width="2.2"/>
+          <circle cx="16" cy="16" r="4.5" fill="url(#brandGrad)"/>
+          <circle cx="16" cy="4" r="2" fill="url(#brandGrad)"/>
+          <circle cx="27.7" cy="22" r="2" fill="url(#brandGrad)"/>
+          <circle cx="4.3" cy="22" r="2" fill="url(#brandGrad)"/>
+          <line x1="16" y1="16" x2="16" y2="6" stroke="url(#brandGrad)" stroke-width="1.4"/>
+          <line x1="16" y1="16" x2="26" y2="21" stroke="url(#brandGrad)" stroke-width="1.4"/>
+          <line x1="16" y1="16" x2="6" y2="21" stroke="url(#brandGrad)" stroke-width="1.4"/>
+          <defs>
+            <linearGradient id="brandGrad" x1="0" y1="0" x2="32" y2="32">
+              <stop offset="0" stop-color="#6C7BFF"/>
+              <stop offset="1" stop-color="#2DD4BF"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </span>
+      <span class="brand-text">
+        <span class="brand-name">MindScope AI</span>
+        <span class="brand-sub">Mental Health Detection</span>
+      </span>
+    </a>
+
+    <nav class="nav-links" id="navLinks" aria-label="Primary">
+      <a href="#home">Home</a>
+      <a href="#assessment">Assessment</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#about">About</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to light mode" aria-pressed="false">
+        <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/></svg>
+      </button>
+      <button class="btn btn-primary btn-sm nav-cta" id="navCta" type="button">Start Assessment</button>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <p class="hero-kicker">Lifestyle-aware AI assessment</p>
+      <h1 class="hero-title">Understand your mental wellness through your lifestyle</h1>
+      <p class="hero-desc">An AI-powered assessment that analyzes lifestyle, academic habits, social media usage, sleep, physical activity and stress patterns to estimate a Mental Health Score.</p>
+      <div class="hero-actions">
+        <button class="btn btn-primary" id="heroStartBtn" type="button">Start Assessment</button>
+        <a class="btn btn-ghost" href="#how-it-works">How it works</a>
+      </div>
+      <p class="hero-disclaimer">For educational and informational purposes only. This assessment is not a medical diagnosis.</p>
+    </div>
+
+    <div class="hero-visual" aria-hidden="true">
+      <svg class="orbit-svg" viewBox="0 0 420 420" width="420" height="420">
+        <defs>
+          <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#6C7BFF"/>
+            <stop offset="0.55" stop-color="#9B6BFF"/>
+            <stop offset="1" stop-color="#2DD4BF"/>
+          </linearGradient>
+          <radialGradient id="coreGrad" cx="0.35" cy="0.3" r="0.8">
+            <stop offset="0" stop-color="#9B6BFF"/>
+            <stop offset="1" stop-color="#6C7BFF"/>
+          </radialGradient>
+        </defs>
+        <circle cx="210" cy="210" r="168" class="orbit-ring orbit-ring-1"/>
+        <circle cx="210" cy="210" r="130" class="orbit-ring orbit-ring-2"/>
+        <circle cx="210" cy="210" r="92" class="orbit-ring orbit-ring-3"/>
+        <circle cx="210" cy="210" r="54" fill="url(#coreGrad)"/>
+        <g class="orbit-node-group orbit-node-1">
+          <circle cx="378" cy="210" r="9" fill="#2DD4BF"/>
+        </g>
+        <g class="orbit-node-group orbit-node-2">
+          <circle cx="210" cy="80" r="7" fill="#9B6BFF"/>
+        </g>
+        <g class="orbit-node-group orbit-node-3">
+          <circle cx="118" cy="318" r="6" fill="#6C7BFF"/>
+        </g>
+        <path d="M 210 210 L 245 155" class="orbit-thread"/>
+        <path d="M 210 210 L 150 245" class="orbit-thread"/>
+        <path d="M 210 210 L 265 250" class="orbit-thread"/>
+      </svg>
+
+      <div class="float-card float-card-1">
+        <span class="float-card-icon">✦</span>
+        <span class="float-card-text">AI Powered</span>
+      </div>
+      <div class="float-card float-card-2">
+        <span class="float-card-icon">⟡</span>
+        <span class="float-card-text">Lifestyle Analysis</span>
+      </div>
+      <div class="float-card float-card-3">
+        <span class="float-card-icon">⇢</span>
+        <span class="float-card-text">Instant Prediction</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<section class="stats" aria-label="Project highlights">
+  <div class="stats-inner">
+    <div class="stat-card">
+      <span class="stat-value" data-count-to="5000" data-suffix="+">0</span>
+      <span class="stat-label">Dataset records</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-value" data-count-to="12">0</span>
+      <span class="stat-label">Prediction inputs</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-value stat-value-text">AI</span>
+      <span class="stat-label">ML-powered prediction</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-value stat-value-text">FastAPI</span>
+      <span class="stat-label">Backend API</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ASSESSMENT ============ -->
+<section class="assessment" id="assessment">
+  <div class="section-inner">
+    <div class="section-head">
+      <h2>Your assessment</h2>
+      <p>Four short steps. Nothing here leaves your browser except the final request to your prediction API.</p>
+    </div>
+
+    <div class="assessment-shell">
+
+      <!-- Step rail -->
+      <div class="step-rail" aria-hidden="true">
+        <div class="step-rail-item is-active" data-rail="1">
+          <span class="step-rail-dot">1</span>
+          <span class="step-rail-label">Personal Profile</span>
+        </div>
+        <div class="step-rail-item" data-rail="2">
+          <span class="step-rail-dot">2</span>
+          <span class="step-rail-label">Digital Habits</span>
+        </div>
+        <div class="step-rail-item" data-rail="3">
+          <span class="step-rail-dot">3</span>
+          <span class="step-rail-label">Lifestyle &amp; Wellness</span>
+        </div>
+        <div class="step-rail-item" data-rail="4">
+          <span class="step-rail-dot">4</span>
+          <span class="step-rail-label">Stress &amp; Prediction</span>
+        </div>
+      </div>
+
+      <div class="assessment-panel">
+        <div class="progress-head">
+          <span class="progress-text" id="progressText">Step 1 of 4</span>
+          <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="25" id="progressBar">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+        </div>
+
+        <form id="assessmentForm" novalidate>
+
+          <!-- STEP 1 -->
+          <fieldset class="form-step is-active" data-step="1">
+            <legend class="step-title">Personal profile</legend>
+            <p class="step-sub">A few basics to set the context for your assessment.</p>
+
+            <div class="field-grid">
+              <div class="field">
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" min="10" max="100" placeholder="Enter your age" required>
+                <span class="field-error" id="err-age" role="alert"></span>
+              </div>
+
+              <div class="field">
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender" required>
+                  <option value="" disabled selected>Select gender</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                </select>
+                <span class="field-error" id="err-gender" role="alert"></span>
+              </div>
+
+              <div class="field field-country">
+                <label for="country">Country</label>
+                <input type="text" id="country" name="country" list="countryList" placeholder="Start typing your country" autocomplete="off" required>
+                <datalist id="countryList">
+                  <option value="India"></option>
+                  <option value="USA"></option>
+                  <option value="Canada"></option>
+                  <option value="Australia"></option>
+                  <option value="UK"></option>
+                  <option value="Germany"></option>
+                  <option value="Mexico"></option>
+                  <option value="Turkey"></option>
+                  <option value="France"></option>
+                  <option value="Other"></option>
+                </datalist>
+                <span class="field-hint">Not listed? Type your country — it will be grouped as "Other" by the model.</span>
+                <span class="field-error" id="err-country" role="alert"></span>
+              </div>
+
+              <div class="field">
+                <label for="academicLevel">Academic level</label>
+                <select id="academicLevel" name="academic_level" required>
+                  <option value="" disabled selected>Select level</option>
+                  <option value="High School">High School</option>
+                  <option value="Undergraduate">Undergraduate</option>
+                  <option value="Graduate">Graduate</option>
+                </select>
+                <span class="field-error" id="err-academicLevel" role="alert"></span>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- STEP 2 -->
+          <fieldset class="form-step" data-step="2">
+            <legend class="step-title">Your digital lifestyle</legend>
+            <p class="step-sub">Tell us about your everyday social media habits.</p>
+
+            <div class="field">
+              <span class="field-group-label">Most used platform</span>
+              <div class="choice-grid" id="platformGrid" role="radiogroup" aria-label="Most used platform"></div>
+              <span class="field-error" id="err-platform" role="alert"></span>
+            </div>
+
+            <div class="field">
+              <span class="field-group-label">Purpose of use</span>
+              <div class="choice-grid choice-grid-compact" id="purposeGrid" role="radiogroup" aria-label="Purpose of use"></div>
+              <span class="field-error" id="err-purpose" role="alert"></span>
+            </div>
+
+            <div class="slider-grid">
+              <div class="field slider-field">
+                <div class="slider-label-row">
+                  <label for="usageHours">Average daily usage</label>
+                  <output for="usageHours" id="usageHoursOut">4.5 hours/day</output>
+                </div>
+                <input type="range" id="usageHours" name="avg_daily_usage_hours" min="0" max="24" step="0.5" value="4.5">
+                <div class="slider-context" id="usageHoursContext">Moderate</div>
+              </div>
+
+              <div class="field slider-field">
+                <div class="slider-label-row">
+                  <label for="dailyUnlocks">Daily unlocks</label>
+                  <output for="dailyUnlocks" id="dailyUnlocksOut">150 unlocks/day</output>
+                </div>
+                <input type="range" id="dailyUnlocks" name="daily_unlocks" min="0" max="400" step="5" value="150">
+                <div class="slider-context" id="dailyUnlocksContext">Moderate</div>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- STEP 3 -->
+          <fieldset class="form-step" data-step="3">
+            <legend class="step-title">Lifestyle balance</legend>
+            <p class="step-sub">Your daily routines can provide useful context for the model.</p>
+
+            <div class="slider-grid slider-grid-3">
+              <div class="field slider-field">
+                <div class="slider-label-row">
+                  <label for="studyHours">Study hours</label>
+                  <output for="studyHours" id="studyHoursOut">4.0 hours/day</output>
+                </div>
+                <input type="range" id="studyHours" name="study_hours" min="0" max="24" step="0.5" value="4">
+                <div class="slider-context" id="studyHoursContext">Moderate</div>
+              </div>
+
+              <div class="field slider-field">
+                <div class="slider-label-row">
+                  <label for="activityHours">Physical activity</label>
+                  <output for="activityHours" id="activityHoursOut">2.0 hours/day</output>
+                </div>
+                <input type="range" id="activityHours" name="physical_activity_hours" min="0" max="24" step="0.5" value="2">
+                <div class="slider-context" id="activityHoursContext">Low</div>
+              </div>
+
+              <div class="field slider-field">
+                <div class="slider-label-row">
+                  <label for="sleepHours">Sleep per night</label>
+                  <output for="sleepHours" id="sleepHoursOut">7.0 hours/night</output>
+                </div>
+                <input type="range" id="sleepHours" name="sleep_hours_per_night" min="0" max="24" step="0.5" value="7">
+                <div class="slider-context" id="sleepHoursContext">Moderate</div>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- STEP 4 -->
+          <fieldset class="form-step" data-step="4">
+            <legend class="step-title">Stress level</legend>
+            <p class="step-sub">How would you describe your current stress level?</p>
+
+            <div class="stress-grid" id="stressGrid" role="radiogroup" aria-label="Stress level"></div>
+            <span class="field-error" id="err-stress" role="alert"></span>
+          </fieldset>
+
+          <!-- REVIEW -->
+          <div class="form-step review-step" data-step="review">
+            <h3 class="step-title">Review your assessment</h3>
+            <p class="step-sub">Confirm your details before we send them to the prediction API.</p>
+
+            <div class="review-grid">
+              <div class="review-card">
+                <h4>Personal profile</h4>
+                <dl>
+                  <div><dt>Age</dt><dd id="rv-age">—</dd></div>
+                  <div><dt>Gender</dt><dd id="rv-gender">—</dd></div>
+                  <div><dt>Country</dt><dd id="rv-country">—</dd></div>
+                  <div><dt>Academic level</dt><dd id="rv-academic">—</dd></div>
+                </dl>
+              </div>
+              <div class="review-card">
+                <h4>Digital habits</h4>
+                <dl>
+                  <div><dt>Platform</dt><dd id="rv-platform">—</dd></div>
+                  <div><dt>Purpose</dt><dd id="rv-purpose">—</dd></div>
+                  <div><dt>Daily usage</dt><dd id="rv-usage">—</dd></div>
+                  <div><dt>Daily unlocks</dt><dd id="rv-unlocks">—</dd></div>
+                </dl>
+              </div>
+              <div class="review-card">
+                <h4>Lifestyle</h4>
+                <dl>
+                  <div><dt>Study hours</dt><dd id="rv-study">—</dd></div>
+                  <div><dt>Physical activity</dt><dd id="rv-activity">—</dd></div>
+                  <div><dt>Sleep</dt><dd id="rv-sleep">—</dd></div>
+                </dl>
+              </div>
+              <div class="review-card">
+                <h4>Stress</h4>
+                <dl>
+                  <div><dt>Stress level</dt><dd id="rv-stress">—</dd></div>
+                </dl>
+              </div>
+            </div>
+
+            <button class="btn btn-primary btn-lg" id="analyzeBtn" type="button">
+              <span class="btn-label">Analyze my mental wellness</span>
+              <span class="btn-spinner" hidden aria-hidden="true"></span>
+            </button>
+            <p class="analyze-status" id="analyzeStatus" aria-live="polite"></p>
+          </div>
+
+          <!-- Controls -->
+          <div class="step-controls" id="stepControls">
+            <button type="button" class="btn btn-outline" id="resetBtn">Reset</button>
+            <div class="step-controls-right">
+              <button type="button" class="btn btn-ghost" id="backBtn" disabled>Back</button>
+              <button type="button" class="btn btn-primary" id="nextBtn">Next</button>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RESULT ============ -->
+<section class="result" id="resultSection" hidden>
+  <div class="section-inner">
+    <div class="result-shell">
+      <div class="result-top">
+        <h2>Your Mental Health Score</h2>
+        <p class="result-sub">Based on the lifestyle information you provided, returned directly by the prediction model.</p>
+      </div>
+
+      <div class="result-main">
+        <div class="score-visual">
+          <svg viewBox="0 0 200 200" width="220" height="220" class="score-ring" aria-hidden="true">
+            <circle cx="100" cy="100" r="86" class="score-ring-bg"/>
+            <circle cx="100" cy="100" r="86" class="score-ring-fill" id="scoreRingFill"/>
+          </svg>
+          <div class="score-number-wrap">
+            <span class="score-number" id="scoreNumber">0.0</span>
+            <span class="score-denom">/ 10</span>
+          </div>
+          <span class="score-range-tag" id="scoreRangeTag">—</span>
+        </div>
+
+        <div class="result-side">
+          <div class="result-card">
+            <h3>What does this score mean?</h3>
+            <p>This score is an ML model prediction based on the lifestyle and behavioral information you provided. It is not a clinical assessment or medical diagnosis.</p>
+            <ul class="range-legend">
+              <li><span class="dot dot-low"></span>0–3.9 · Lower predicted score range</li>
+              <li><span class="dot dot-mid"></span>4–6.9 · Moderate predicted score range</li>
+              <li><span class="dot dot-high"></span>7–10 · Higher predicted score range</li>
+            </ul>
+            <p class="range-note">These are UI interpretation ranges only, not clinical standards.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="snapshot">
+        <h3>Your assessment snapshot</h3>
+        <div class="snapshot-grid" id="snapshotGrid"></div>
+      </div>
+
+      <div class="insights">
+        <h3>Lifestyle insights</h3>
+        <p class="insights-note">Generated from your entered values using simple, transparent rules — not from the ML model. General wellness suggestions, not medical advice.</p>
+        <div class="insights-grid" id="insightsGrid"></div>
+      </div>
+
+      <div class="result-actions">
+        <button class="btn btn-outline" id="editAnswersBtn" type="button">Edit answers</button>
+        <button class="btn btn-primary" id="newAssessmentBtn" type="button">Start new assessment</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ERROR / CONNECTION STATE ============ -->
+<section class="api-error" id="apiErrorSection" hidden>
+  <div class="section-inner">
+    <div class="error-card">
+      <div class="error-icon" aria-hidden="true">!</div>
+      <h2 id="apiErrorTitle">Unable to connect to the prediction server.</h2>
+      <p id="apiErrorDetail">Please make sure the FastAPI backend is running at <code id="apiErrorUrl">http://127.0.0.1:8000</code></p>
+      <button class="btn btn-primary" id="retryBtn" type="button">Try again</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="how-it-works" id="how-it-works">
+  <div class="section-inner">
+    <div class="section-head">
+      <h2>How it works</h2>
+      <p>Three steps from your answers to a prediction, and nothing in between hidden from you.</p>
+    </div>
+
+    <div class="how-grid">
+      <div class="how-card">
+        <span class="how-index">01</span>
+        <h3>Enter your information</h3>
+        <p>Provide lifestyle, academic and digital behavior details across a short guided form.</p>
+      </div>
+      <div class="how-card">
+        <span class="how-index">02</span>
+        <h3>AI model analysis</h3>
+        <p>Your information is sent securely to the FastAPI backend, which passes it to the trained ML model.</p>
+      </div>
+      <div class="how-card">
+        <span class="how-index">03</span>
+        <h3>Receive your score</h3>
+        <p>The model returns a predicted Mental Health Score, visualized in a dedicated results dashboard.</p>
+      </div>
+    </div>
+
+    <div class="architecture" role="img" aria-label="Architecture diagram: User to HTML CSS JavaScript frontend, to FastAPI predict endpoint, to Mental Health Model pickle file, to predicted Mental Health Score, back to frontend result dashboard">
+      <div class="arch-node">User</div>
+      <div class="arch-arrow">↓</div>
+      <div class="arch-node">HTML / CSS / JavaScript frontend</div>
+      <div class="arch-arrow">↓</div>
+      <div class="arch-node arch-node-accent">FastAPI · /predict</div>
+      <div class="arch-arrow">↓</div>
+      <div class="arch-node">Mental_Health_Model.pkl</div>
+      <div class="arch-arrow">↓</div>
+      <div class="arch-node arch-node-accent">Predicted Mental Health Score</div>
+      <div class="arch-arrow">↓</div>
+      <div class="arch-node">Frontend result dashboard</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="about" id="about">
+  <div class="section-inner about-inner">
+    <div class="about-copy">
+      <h2>About Mental Health Detection</h2>
+      <p>This project explores how student lifestyle and digital behavior variables can be used with machine learning to estimate a Mental Health Score.</p>
+      <ul class="about-features">
+        <li>Student lifestyle analysis</li>
+        <li>Social media behavior</li>
+        <li>Academic habits</li>
+        <li>Sleep patterns</li>
+        <li>Physical activity</li>
+        <li>Stress level</li>
+        <li>ML-based prediction</li>
+        <li>FastAPI deployment</li>
+      </ul>
+      <p class="about-note">This system is a machine-learning coursework project. It has not undergone clinical validation.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="section-inner footer-inner">
+    <div class="footer-brand">
+      <span class="brand-name">MindScope AI</span>
+      <p>Mental Health Detection — an educational machine learning project.</p>
+    </div>
+    <p class="footer-disclaimer"><strong>Important:</strong> This application is an educational machine-learning project and should not be used as a substitute for professional mental health assessment, diagnosis, or treatment.</p>
+    <p class="footer-meta">No analytics trackers. No external databases. Data is sent only to the configured prediction API.</p>
+  </div>
+</footer>
+
+<!-- Toast container -->
+<div class="toast-container" id="toastContainer" aria-live="polite" aria-atomic="true"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
