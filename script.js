@@ -1,4 +1,4 @@
-const API_URL = "https://mental-health-score-fuep.onrender.com/predict";
+const API_URL = "https://mental-health-score-fuep.onrender.com";
 const PLATFORMS = [
   { value: "Facebook", icon: "📘" },
   { value: "LinkedIn", icon: "💼" },
@@ -350,7 +350,7 @@ async function submitAssessment() {
   analyzeStatus.textContent = "Connecting to the ML prediction service…";
 
   try {
-    const response = await fetch(API_URL, {
+    const response = await fetch(`${API_URL}/predict`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
