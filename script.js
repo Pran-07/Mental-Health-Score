@@ -1,4 +1,4 @@
-const API_URL = "http://127.0.0.1:8000/predict";
+const API_URL = "https://mental-health-score-fuep.onrender.com";
 const PLATFORMS = [
   { value: "Facebook", icon: "📘" },
   { value: "LinkedIn", icon: "💼" },
